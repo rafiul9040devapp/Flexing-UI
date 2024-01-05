@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
           title: 'Design Testing',
           theme: ThemeData(
             useMaterial3: true,
-            appBarTheme: const AppBarTheme(backgroundColor: Colors.deepPurple),
+            appBarTheme: const AppBarTheme(backgroundColor: Colors.white24),
             colorScheme: const ColorScheme.light(
-                background: Colors.lightBlueAccent ,
+                background: Colors.white24 ,
                 onPrimary: Colors.purple)
           ),
           home: child,

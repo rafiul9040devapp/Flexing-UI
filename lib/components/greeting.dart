@@ -15,8 +15,8 @@ class Greeting extends StatelessWidget {
             child: Container(
               height: 50.h,
               decoration: BoxDecoration(
-                color: Colors.redAccent.shade100,
-                borderRadius: BorderRadius.circular(25.r),
+                color: Colors.white24,
+                borderRadius: BorderRadius.circular(15.r),
               ),
               child: Center(
                 child: Text(
@@ -36,8 +36,8 @@ class Greeting extends StatelessWidget {
             child: Container(
               height: 50.h,
               decoration: BoxDecoration(
-                color: Colors.redAccent.shade200,
-                borderRadius: BorderRadius.circular(25.r),
+                color: Colors.white24,
+                borderRadius: BorderRadius.circular(15.r),
               ),
               child: Center(
                 child: Text(
