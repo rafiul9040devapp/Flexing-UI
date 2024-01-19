@@ -1,5 +1,6 @@
 import 'package:flexing/screens/home_screen.dart';
 import 'package:flexing/screens/product_screen.dart';
+import 'package:flexing/screens/special_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,16 +24,14 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Design Testing',
           theme: ThemeData(
-            useMaterial3: true,
-            appBarTheme: const AppBarTheme(backgroundColor: Colors.white24),
-            colorScheme: const ColorScheme.light(
-                background: Colors.white24 ,
-                onPrimary: Colors.purple)
-          ),
+              useMaterial3: true,
+              appBarTheme: const AppBarTheme(backgroundColor: Colors.white24),
+              colorScheme: const ColorScheme.light(
+                  background: Colors.white24, onPrimary: Colors.purple)),
           home: child,
         );
       },
-      child: const ProductScreen(),
+      child: const SpecialList(),
     );
   }
 }
