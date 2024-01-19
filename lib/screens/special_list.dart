@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class SpecialList extends StatefulWidget {
   const SpecialList({super.key});
@@ -27,6 +26,7 @@ class _SpecialListState extends State<SpecialList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           'List Wheel Scroll View',
@@ -54,13 +54,13 @@ class _SpecialListState extends State<SpecialList> {
         itemExtent: 250.h,
         controller: _controller,
         physics: const FixedExtentScrollPhysics(),
-        perspective: .003,
+        perspective: .002,
         diameterRatio: 1.5,
-        //squeeze: 0.5.w,
+        squeeze: 1.w,
         // magnification: 1.5,
         // useMagnifier: true,
         childDelegate: ListWheelChildBuilderDelegate(
-          childCount: 10,
+          childCount: 20,
           builder: (context, index) => buildCard(index),
         ),
       ),
@@ -72,8 +72,8 @@ class _SpecialListState extends State<SpecialList> {
       padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
       child: Card(
         color: Colors.blueAccent.shade100,
-        elevation: 2,
-        shadowColor: Colors.grey.shade200,
+        elevation: 5,
+        shadowColor: Colors.blueAccent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.r),
         ),
