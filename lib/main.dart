@@ -1,3 +1,4 @@
+import 'package:flexing/screens/drink_water.dart';
 import 'package:flexing/screens/home_screen.dart';
 import 'package:flexing/screens/product_screen.dart';
 import 'package:flexing/screens/special_list.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const WatchScreen(),
+      child: const DrinkWaterScreen(),
     );
   }
 }
