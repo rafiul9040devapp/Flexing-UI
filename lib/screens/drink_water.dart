@@ -12,14 +12,14 @@ class DrinkWaterScreen extends StatefulWidget {
 }
 
 class _DrinkWaterScreenState extends State<DrinkWaterScreen> {
+  final TextEditingController _noOfGlassesTEController =
+      TextEditingController(text: '1');
+  final TextEditingController _noteTEController =
+      TextEditingController(text: 'Morning');
+  final List<WaterConsumption> _waterConsumptionList = [];
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _noOfGlassesTEController =
-        TextEditingController(text: '1');
-    final TextEditingController _noteTEController =
-        TextEditingController(text: 'Morning');
-    List<WaterConsumption> _waterConsumptionList = [];
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -43,7 +43,7 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen> {
               child: InkWell(
                 borderRadius: BorderRadius.circular(100.r),
                 onTap: () {
-
+                  insetToList();
                 },
                 child: Container(
                   height: 150.h,
@@ -88,39 +88,53 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen> {
                 ),
               ],
             ),
-            10.verticalSpace,
+            20.verticalSpace,
             ListView.builder(
               shrinkWrap: true,
               primary: false,
               itemCount: _waterConsumptionList.length,
               itemBuilder: (context, index) {
                 final item = _waterConsumptionList[index];
-                return ListTile(
-                  leading: CircleAvatar(
-                    radius: 20.r,
-                    child: Text(
-                      item.noOfGlasses.toString(),
+                return Padding(
+                  padding: EdgeInsets.all(4.w),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.greenAccent.shade100,
+                      radius: 20.r,
+                      child: Text(
+                        item.noOfGlasses.toString(),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w200,
+                          fontSize: 20.sp,
+                        ),
+                      ),
+                    ),
+                    title: Text(
+                      item.note,
                       style: TextStyle(
-                        color: Colors.black12,
+                        color: Colors.black,
                         fontWeight: FontWeight.w200,
                         fontSize: 18.sp,
                       ),
                     ),
-                  ),
-                  title: Text(
-                    item.note,
-                    style: TextStyle(
-                      color: Colors.black12,
-                      fontWeight: FontWeight.w200,
-                      fontSize: 18.sp,
+                    subtitle: Text(
+                      DateFormat.yMEd().add_jms().format(item.time),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w200,
+                        fontSize: 14.sp,
+                      ),
                     ),
-                  ),
-                  subtitle: Text(
-                    DateFormat.yMEd().add_jms().format(item.time),
-                    style: TextStyle(
-                      color: Colors.black12,
-                      fontWeight: FontWeight.w200,
-                      fontSize: 18.sp,
+                    trailing: IconButton(
+                      onPressed: () {
+                        deleteFromList(index);
+                      },
+                      icon: Icon(
+                        Icons.delete,
+                        color: Colors.redAccent,
+                        size: 20.sp,
+                      ),
                     ),
                   ),
                 );
@@ -130,5 +144,19 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen> {
         ),
       ),
     );
+  }
+
+  void deleteFromList(int index) {
+    _waterConsumptionList.removeAt(index);
+    setState(() {});
+  }
+
+  void insetToList() {
+    int numberOfGlasses = int.tryParse(_noOfGlassesTEController.text) ?? 1;
+    _waterConsumptionList.insert(
+        0,
+        WaterConsumption(
+            numberOfGlasses, DateTime.now(), _noteTEController.text));
+    setState(() {});
   }
 }
