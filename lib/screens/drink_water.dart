@@ -65,7 +65,6 @@ class _DrinkWaterScreenState extends State<DrinkWaterScreen> {
                 ),
               ),
             ),
-            20.verticalSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
