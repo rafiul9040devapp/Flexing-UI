@@ -1,3 +1,4 @@
+import 'package:flexing/learn_getx/start_screen.dart';
 import 'package:flexing/screens/drink_water.dart';
 import 'package:flexing/screens/home_screen.dart';
 import 'package:flexing/screens/product_screen.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const DrinkWaterScreen(),
+      child:  StartScreen(),
     );
   }
 }
