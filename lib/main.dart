@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Design Testing',
+          initialRoute: '/',
           theme: ThemeData(
               useMaterial3: true,
               appBarTheme: const AppBarTheme(backgroundColor: Colors.white24),

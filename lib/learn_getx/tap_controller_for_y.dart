@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 
 class TapControllerForY extends GetxController{
-  RxInt _y = 0.obs;
+  final RxInt _y = 0.obs;
   RxInt get y => _y;
   void incrementY(){
-    _y++;
+    _y.value++;
   }
   void decrementY(){
-    _y--;
+    _y.value--;
   }
 }

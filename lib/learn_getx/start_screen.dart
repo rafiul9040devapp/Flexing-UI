@@ -1,5 +1,8 @@
 import 'package:flexing/learn_getx/custome_button.dart';
+import 'package:flexing/learn_getx/second_screen.dart';
 import 'package:flexing/learn_getx/tap_controller_for_x.dart';
+import 'package:flexing/learn_getx/tap_controller_for_y.dart';
+import 'package:flexing/learn_getx/third_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -39,9 +42,9 @@ class StartScreen extends StatelessWidget {
               },
             ),
             CustomButton('Increase X', () => controllerForX.incrementX()),
-            CustomButton('Go To Next Page ', () => null),
-            CustomButton('TAP', () => null),
-            CustomButton('TAP', () => null),
+            CustomButton('Go To Next Page ', () => Get.to(()=> const SecondScreen())),
+            CustomButton('Go to Third Page', () => Get.off(()=> ThirdScreen())),
+            CustomButton(Get.find<TapControllerForY>().y.value.toString(), () => null),
           ],
         ),
       ),
