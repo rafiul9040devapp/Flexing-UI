@@ -1,4 +1,4 @@
-import 'package:flexing/learn_getx/start_screen.dart';
+import 'package:flexing/learn_getx/pages/start_screen.dart';
 import 'package:flexing/screens/drink_water.dart';
 import 'package:flexing/screens/home_screen.dart';
 import 'package:flexing/screens/product_screen.dart';

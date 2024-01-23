@@ -1,5 +1,5 @@
-import 'package:flexing/learn_getx/custome_button.dart';
-import 'package:flexing/learn_getx/fourth_page.dart';
+import 'package:flexing/learn_getx/widgets/custome_button.dart';
+import 'package:flexing/learn_getx/pages/fourth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

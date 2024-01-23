@@ -1,24 +1,28 @@
-import 'package:flexing/learn_getx/custome_button.dart';
-import 'package:flexing/learn_getx/second_screen.dart';
-import 'package:flexing/learn_getx/tap_controller_for_x.dart';
-import 'package:flexing/learn_getx/tap_controller_for_y.dart';
-import 'package:flexing/learn_getx/third_screen.dart';
+import 'package:flexing/learn_getx/widgets/custome_button.dart';
+import 'package:flexing/learn_getx/controller/tap_controller_for_x.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class StartScreen extends StatelessWidget {
-  StartScreen({super.key});
-
-  final TapControllerForX controllerForX = Get.put(TapControllerForX());
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TapControllerForX controllerForX = Get.find();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 25.sp,
+          ),
+        ),
         title: Text(
-          'Start Screen',
+          'Second Screen',
           style: TextStyle(
             fontSize: 25.sp,
             fontWeight: FontWeight.w600,
@@ -41,10 +45,7 @@ class StartScreen extends StatelessWidget {
                 return CustomButton(controllerForX.x.toString(), () => null);
               },
             ),
-            CustomButton('Increase X', () => controllerForX.incrementX()),
-            CustomButton('Go To Next Page ', () => Get.to(()=> const SecondScreen())),
-            CustomButton('Go to Third Page', () => Get.off(()=> ThirdScreen())),
-            CustomButton(Get.find<TapControllerForY>().y.value.toString(), () => null),
+            CustomButton('Decrement X', () => Get.find<TapControllerForX>().decrementX()),
           ],
         ),
       ),
