@@ -22,9 +22,9 @@ class FourthPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Obx(() => CustomButton(controllerForZ.total.value.toString(), () => null)),
-              CustomButton(Get.find<TapControllerForX>().x.toString(), () => Get.offAll(()=>StartScreen())),
-              Obx(() => CustomButton(controllerForY.y.value.toString(), () => null)),
+              Obx(() => CustomButton('Total: ${controllerForZ.total.value}', () => null)),
+              CustomButton('X value: ${Get.find<TapControllerForX>().x}', () => Get.offAll(()=>StartScreen())),
+              Obx(() => CustomButton('Y value: ${controllerForY.y.value}', () => null)),
               CustomButton('Increment Y', () => controllerForY.incrementY()),
               CustomButton('Total: X+Y', () => controllerForZ.getTotal(Get.find<TapControllerForX>().x, controllerForY.y.value)),
               CustomButton('Save To List', () => null),

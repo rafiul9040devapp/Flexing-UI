@@ -7,8 +7,11 @@ import 'package:flexing/screens/watch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'learn_getx/helper/init_controller.dart' as di;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -29,9 +32,9 @@ class MyApp extends StatelessWidget {
           initialRoute: '/',
           theme: ThemeData(
               useMaterial3: true,
-              appBarTheme: const AppBarTheme(backgroundColor: Colors.white24),
+              appBarTheme: AppBarTheme(backgroundColor: Colors.blueAccent.shade100),
               colorScheme: const ColorScheme.light(
-                  background: Colors.white24, onPrimary: Colors.purple)),
+                  background: Colors.white, onPrimary: Colors.purple)),
           home: child,
         );
       },
